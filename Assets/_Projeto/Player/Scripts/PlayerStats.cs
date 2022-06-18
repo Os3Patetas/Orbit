@@ -1,31 +1,31 @@
 using System;
-using System.Collections;
-
 using UnityEngine;
-
 using com.Icypeak.Orbit.Obstacle;
-using com.Icypeak.Orbit.Utils;
 
 namespace com.Icypeak.Orbit.Player
 {
     public class PlayerStats : MonoBehaviour
     {
-        [SerializeField] Skin currentSkin;
         Rigidbody2D _rb;
 
         public int Score = 0;
-        int lifes = 3;
+        public int Lifes = 3;
 
         public static Action<int> OnScoreChange;
-        public static Action<int> OnLifeChange;
+        public static Action OnLifeChange;
         public static Action OnDeath;
 
         [SerializeField] float verticalMoveSpeed;
 
-        void Awake()
+        void Awake() => _rb = GetComponent<Rigidbody2D>();
+
+        void Update()
         {
-            _rb = GetComponent<Rigidbody2D>();
-            GetComponent<SpriteRenderer>().sprite = currentSkin.InitialSprite;
+            if (Lifes <= 0)
+            {
+                OnDeath?.Invoke();
+                gameObject.SetActive(false);
+            }
         }
 
         void FixedUpdate()
@@ -58,32 +58,10 @@ namespace com.Icypeak.Orbit.Player
             OnScoreChange?.Invoke(Score);
         }
 
-        public int Lifes
+        void DecreaseLife()
         {
-            get => lifes;
-            set
-            {
-                lifes = value;
-                OnLifeChange?.Invoke(Lifes);
-
-                if (Lifes <= 0)
-                {
-                    OnDeath?.Invoke();
-                    gameObject.SetActive(false);
-                }
-            }
+            Lifes--;
+            OnLifeChange?.Invoke();
         }
-
-        IEnumerator InvincibilityTimer()
-        {
-            ObstacleBehaviour.OnEscape -= DecreaseLife;
-            yield return new WaitForSeconds(5f);
-            ObstacleBehaviour.OnEscape += DecreaseLife;
-        }
-
-        public void ActivateInvincibility() => StartCoroutine("InvincibilityTimer");
-
-        void IncreaseLife() => Lifes++;
-        void DecreaseLife() => Lifes--;
     }
 }

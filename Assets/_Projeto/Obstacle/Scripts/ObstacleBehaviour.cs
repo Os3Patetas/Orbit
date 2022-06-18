@@ -1,7 +1,5 @@
 using UnityEngine;
 using System;
-
-using com.Icypeak.Orbit.Utils;
 using com.Icypeak.Orbit.Player;
 
 namespace com.Icypeak.Orbit.Obstacle
@@ -11,11 +9,11 @@ namespace com.Icypeak.Orbit.Obstacle
         Rigidbody2D _rb;
         SpriteRenderer _sr;
 
-        [SerializeField] Skin selectedSkin;
+        [SerializeField] ObstacleSkin selectedSkin;
 
         [SerializeField] float verticalSpeed;
         [SerializeField] float maxVerticalSpeed;
-        [SerializeField] float rotationSpeed;
+        float rotationSpeed;
 
         public static Action OnDeath;
         public static Action OnEscape;
@@ -28,7 +26,7 @@ namespace com.Icypeak.Orbit.Obstacle
 
         void Start()
         {
-            _sr.sprite = selectedSkin.InitialSprite;
+            _sr.sprite = selectedSkin.ObstacleSprite;
             rotationSpeed = verticalSpeed * selectedSkin.RotationSpeed / 2;
 
             _rb.velocity = new Vector3(0, -verticalSpeed, 0);
