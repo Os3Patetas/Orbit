@@ -7,6 +7,7 @@ namespace com.Icypeak.Orbit.Spawner
     public class SpawnerBehaviour : MonoBehaviour
     {
         public GameObject[] Obstacles;
+        public GameObject[] Bonuses;
 
         public bool CanSpawn = true;
         float _spawnTimer;

@@ -63,7 +63,7 @@ namespace com.Icypeak.Orbit.Player
                 {
                     ""name"": """",
                     ""id"": ""8bff8f0f-d3bd-4f26-9fdc-8994e9453fbf"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch"",
