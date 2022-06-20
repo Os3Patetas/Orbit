@@ -8,20 +8,18 @@ namespace com.Icypeak.Orbit.Player
     {
         PlayerInput _input;
 
-        public Vector3 pressPos;
-        public bool IsPressing;
-        public bool IsDragging;
-        public float mouseDragPhysicsSpeed = 10;
+        [SerializeField] Vector3 pressPos;
+        [SerializeField] bool isPressing;
+        [SerializeField] bool isDragging;
+        [SerializeField] float mouseDragPhysicsSpeed = 10;
         WaitForFixedUpdate _waitForFixedUpdate = new WaitForFixedUpdate();
 
-        void Awake()
-        {
+        void Awake() =>
             _input = new PlayerInput();
-        }
 
         void Update()
         {
-            if (IsDragging)
+            if (isDragging)
                 pressPos = _input.Movement.PressPos.ReadValue<Vector2>();
         }
 
@@ -41,7 +39,7 @@ namespace com.Icypeak.Orbit.Player
 
         void PressStarted(InputAction.CallbackContext ctx)
         {
-            IsPressing = true;
+            isPressing = true;
             pressPos = _input.Movement.PressPos.ReadValue<Vector2>();
             Ray ray = Camera.main.ScreenPointToRay(pressPos);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
@@ -52,7 +50,7 @@ namespace com.Icypeak.Orbit.Player
 
         void PressCanceled(InputAction.CallbackContext ctx)
         {
-            IsPressing = false;
+            isPressing = false;
             pressPos = Vector3.zero;
         }
 
@@ -62,18 +60,18 @@ namespace com.Icypeak.Orbit.Player
             pressedObj.TryGetComponent<Rigidbody2D>(out var _rb);
             Ray ray;
             Vector3 dir;
-            while (IsPressing)
+            while (isPressing)
             {
                 ray = Camera.main.ScreenPointToRay(pressPos);
                 if (_rb != null)
                 {
-                    IsDragging = true;
+                    isDragging = true;
                     dir = ray.GetPoint(initialDistance) - pressedObj.transform.position;
                     _rb.velocity = new Vector2(dir.x * mouseDragPhysicsSpeed, _rb.velocity.y);
                     yield return _waitForFixedUpdate;
                 }
             }
-            IsDragging = false;
+            isDragging = false;
             _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
         }
     }
