@@ -29,17 +29,11 @@ namespace com.Icypeak.Orbit.Spawner
             }
         }
 
-        public void OnEnable()
-        {
-            PlayerStats.OnDeath += DisableSpawn;
+        public void OnEnable() =>
             ObstacleBehaviour.OnDeath += ReduceSpawnCooldown;
-        }
 
-        public void OnDisable()
-        {
-            PlayerStats.OnDeath -= DisableSpawn;
+        public void OnDisable() =>
             ObstacleBehaviour.OnDeath -= ReduceSpawnCooldown;
-        }
 
         void ReduceSpawnCooldown()
         {
