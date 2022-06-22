@@ -1,7 +1,7 @@
 using com.Icypeak.Orbit.Player;
 using UnityEngine;
 
-namespace com.Icypeak.Orbit
+namespace com.Icypeak.Orbit.Bonus
 {
     public class InvincibilityBonus : MonoBehaviour
     {

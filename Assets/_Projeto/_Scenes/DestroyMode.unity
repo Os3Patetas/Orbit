@@ -733,6 +733,7 @@ MonoBehaviour:
   - {fileID: 1579024048139036882, guid: 030073bc6b07bae45b2e53efd612d54f, type: 3}
   Bonuses:
   - {fileID: 1785852795929598324, guid: e45dede6aaed6b64ea2508201a926a6d, type: 3}
+  - {fileID: 2222013868182686412, guid: 24bab611d90623d4794b6f8a5a56b713, type: 3}
   CanSpawn: 1
   bonusSpawnChanceMult: 1
   obstacleSpawnChanceMult: 1

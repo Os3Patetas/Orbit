@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Projeto/_Scenes/GameScene.unity
+    path: Assets/_Projeto/_Scenes/ChooseGameMode.unity
+    guid: dc1c89d148c5d9949886a9e84e402aad
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/SurviveMode.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/DestroyMode.unity
+    guid: 3b1b8e91d46d0c142835bc9c6b05b59c
   m_configObjects: {}
