@@ -1,26 +1,36 @@
 using System;
 using UnityEngine;
-
 using com.Icypeak.Orbit.Manager;
 using com.Icypeak.Orbit.Obstacle;
+using System.Collections;
 
 namespace com.Icypeak.Orbit.Player
 {
     public class PlayerStats : MonoBehaviour
     {
+        //Components
         Rigidbody2D _rb;
-
+        
+        [Header("Stats")]
         [SerializeField] float verticalMoveSpeed;
         [SerializeField] int maxLife = 3;
         [SerializeField] int life = 3;
+        [SerializeField] float invincibilityDuration;
 
+        //Delegates
         public Action<int> OnLifeChange;
         public Action OnDeath;
 
+        //Status
+        bool _isInvincible;
+
         void Awake() => _rb = GetComponent<Rigidbody2D>();
 
-        void Start() =>
+        void Start()
+        {
+            _isInvincible = false;
             _rb.velocity = new Vector2(_rb.velocity.x, verticalMoveSpeed);
+        }
 
         void FixedUpdate()
         {
@@ -33,19 +43,35 @@ namespace com.Icypeak.Orbit.Player
 
         private void ReduceLife()
         {
-            life--;
-            OnLifeChange?.Invoke(life);
-            if (life <= 0)
+            if (!_isInvincible)
             {
-                OnDeath?.Invoke();
-                AdManager.Instance.ShowRewardedInterstitialAd();
-                this.gameObject.SetActive(false);
+                life--;
+                OnLifeChange?.Invoke(life);
+                if (life <= 0)
+                {
+                    OnDeath?.Invoke();
+                    AdManager.Instance.ShowRewardedInterstitialAd();
+                    this.gameObject.SetActive(false);
+                }
             }
         }
-        private void IncreaseLife()
+
+        public void IncreaseLife()
         {
             life = Mathf.Clamp(life + 1, 0, maxLife);
             OnLifeChange?.Invoke(life);
+        }
+
+        private IEnumerator StartInvincibilityTimer()
+        {
+            _isInvincible = true;
+            yield return new WaitForSeconds(invincibilityDuration);
+            _isInvincible = false;
+        }
+
+        public void BecomeInvincibile()
+        {
+            StartCoroutine(StartInvincibilityTimer());
         }
 
         void OnEnable()

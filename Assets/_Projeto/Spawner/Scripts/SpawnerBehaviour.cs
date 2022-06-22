@@ -1,6 +1,4 @@
 using UnityEngine;
-using com.Icypeak.Orbit.Player;
-using com.Icypeak.Orbit.Obstacle;
 
 namespace com.Icypeak.Orbit.Spawner
 {
@@ -11,9 +9,9 @@ namespace com.Icypeak.Orbit.Spawner
 
         public bool CanSpawn = true;
         float _spawnTimer;
+        [SerializeField] float bonusSpawnChanceMult = 1f;
+        [SerializeField] float obstacleSpawnChanceMult = 1f;
         [SerializeField] float spawnCooldown;
-        [SerializeField] float MinSpawnCooldown;
-        [SerializeField] float timeToDecrement;
 
         void Update()
         {
@@ -22,32 +20,28 @@ namespace com.Icypeak.Orbit.Spawner
             _spawnTimer -= Time.deltaTime;
             if (_spawnTimer <= 0)
             {
-                Vector3 randomOffset = new Vector3();
-                randomOffset.x = Random.Range(-2.1f, 2.1f);
-                Instantiate(Obstacles[0], this.transform.position + randomOffset, Quaternion.identity);
+                var bonusOdd = Random.Range(1, 100) * bonusSpawnChanceMult;
+                var obstacleOdd = Random.Range(1, 100) * obstacleSpawnChanceMult;
+                var randomSpawnPos = this.transform.position + new Vector3(Random.Range(-2.1f,2.1f),0,0);
+                if(obstacleOdd > bonusOdd)
+                {
+                    int randomEl = Random.Range(0, Obstacles.Length);
+                    Instantiate(Obstacles[randomEl], randomSpawnPos, Quaternion.identity);
+                }
+                else
+                {
+                    int randomEl = Random.Range(0, Bonuses.Length);
+                    Instantiate(Bonuses[randomEl], randomSpawnPos, Quaternion.identity);
+                }
+
                 _spawnTimer = spawnCooldown;
             }
         }
 
-        public void OnEnable() =>
-            ObstacleBehaviour.OnDeath += ReduceSpawnCooldown;
-
-        public void OnDisable() =>
-            ObstacleBehaviour.OnDeath -= ReduceSpawnCooldown;
-
-        void ReduceSpawnCooldown()
-        {
-            spawnCooldown = Mathf.Clamp(spawnCooldown - timeToDecrement, 0.5f, 1.5f);
-        }
-
-        public void DisableSpawn()
-        {
+        public void DisableSpawn() =>
             CanSpawn = false;
-        }
 
-        public void EnableSpawn()
-        {
+        public void EnableSpawn() =>
             CanSpawn = true;
-        }
     }
 }
