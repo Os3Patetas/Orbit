@@ -421,9 +421,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 772465075}
-        m_TargetAssemblyTypeName: com.Icypeak.Orbit.GameUI, Assembly-CSharp
-        m_MethodName: PauseButtonClick
+      - m_Target: {fileID: 1429169760}
+        m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
+        m_MethodName: OpenPauseMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -635,9 +635,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1877197684}
-        m_TargetAssemblyTypeName: com.Icypeak.Orbit.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: RestartGameButtonClick
+      - m_Target: {fileID: 1429169760}
+        m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1027,7 +1027,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576295067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1035,7 +1035,7 @@ RectTransform:
   - {fileID: 745283282}
   - {fileID: 1320491316}
   - {fileID: 782635979}
-  m_Father: {fileID: 1429169759}
+  m_Father: {fileID: 772465074}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1127,9 +1127,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1877197684}
-        m_TargetAssemblyTypeName: com.Icypeak.Orbit.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: ResumeButtonClick
+      - m_Target: {fileID: 1429169760}
+        m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
+        m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1301,6 +1301,7 @@ RectTransform:
   m_Children:
   - {fileID: 2115034429}
   - {fileID: 199113973}
+  - {fileID: 576295068}
   m_Father: {fileID: 1429169759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2063,6 +2064,7 @@ GameObject:
   - component: {fileID: 1429169758}
   - component: {fileID: 1429169757}
   - component: {fileID: 1429169756}
+  - component: {fileID: 1429169760}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2145,7 +2147,6 @@ RectTransform:
   m_Children:
   - {fileID: 772465074}
   - {fileID: 1877197681}
-  - {fileID: 576295068}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2154,6 +2155,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1429169760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429169755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07177d384cc354d4784e961d8cff6867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 1877197680}
 --- !u!1 &1475831794
 GameObject:
   m_ObjectHideFlags: 0
