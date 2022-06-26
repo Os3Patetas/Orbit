@@ -14,5 +14,10 @@ namespace com.Icypeak.Orbit.Scene
         {
             SceneManager.LoadScene("SurviveMode");
         }
+        
+        public void GoToMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
