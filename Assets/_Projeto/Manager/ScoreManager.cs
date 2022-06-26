@@ -7,6 +7,7 @@ namespace com.Icypeak.Orbit.Manager
     public class ScoreManager : MonoBehaviour
     {
         [SerializeField] int scorePoints;
+        public int ScorePoints { get => scorePoints; }
         public Action<int> OnScoreChange;
 
         private void IncreaseScore()
