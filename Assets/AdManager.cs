@@ -20,6 +20,7 @@ namespace com.Icypeak.Orbit
             {
                 Instance = this;
             }
+            DontDestroyOnLoad(this.gameObject);
         }
 
         public void RequestBanner()
