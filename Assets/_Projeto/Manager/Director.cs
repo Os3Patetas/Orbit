@@ -8,7 +8,8 @@ namespace com.Icypeak.Orbit.Manager
         public GameObject GameUIObj;
         public GameObject PauseMenuUIObj;
         public static int GameMode = 1;
-        public static float ObstacleMaxSpeed;
+
+        public static float ObstacleSpeed;
 
         void Awake()
         {
