@@ -1,8 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using com.Icypeak.Orbit.Manager;
 using com.Icypeak.Orbit.Obstacle;
-using System.Collections;
 
 namespace com.Icypeak.Orbit.Player
 {
@@ -50,7 +50,6 @@ namespace com.Icypeak.Orbit.Player
                 if (life <= 0)
                 {
                     OnDeath?.Invoke();
-                    AdManager.Instance.ShowRewardedInterstitialAd();
                     this.gameObject.SetActive(false);
                 }
             }
