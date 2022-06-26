@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-guid: 5a6531d4c9c484d679a2d6f9e6fefed5
-labels:
-- gvh
-- gvh_version-7.1.0
-- gvhp_exportpath-GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x50.png
+guid: 6cc06ef9dded77fd0bed37a0bf41a53c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
