@@ -147,6 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81898300203aa9e478b76cdab701006c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSkin: {fileID: 11400000, guid: f1bed147ec40ee345afc7114d303622d, type: 2}
-  verticalSpeed: 10
-  maxVerticalSpeed: 0
+  speed: 3

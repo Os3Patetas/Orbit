@@ -1,38 +1,39 @@
 using System;
 using UnityEngine;
+using com.Icypeak.Orbit.Manager;
 using com.Icypeak.Orbit.Obstacle;
+using System.Collections;
 
 namespace com.Icypeak.Orbit.Player
 {
     public class PlayerStats : MonoBehaviour
     {
+        //Components
         Rigidbody2D _rb;
-
-        public int Score = 0;
-        public int Lifes = 3;
-
-        public static Action<int> OnScoreChange;
-        public static Action OnLifeChange;
-        public static Action OnDeath;
-
+        
+        [Header("Stats")]
         [SerializeField] float verticalMoveSpeed;
+        [SerializeField] int maxLife = 3;
+        [SerializeField] int life = 3;
+        [SerializeField] float invincibilityDuration;
+
+        //Delegates
+        public Action<int> OnLifeChange;
+        public Action OnDeath;
+
+        //Status
+        bool _isInvincible;
 
         void Awake() => _rb = GetComponent<Rigidbody2D>();
 
-        void Update()
+        void Start()
         {
-            if (Lifes <= 0)
-            {
-                OnDeath?.Invoke();
-                gameObject.SetActive(false);
-            }
+            _isInvincible = false;
+            _rb.velocity = new Vector2(_rb.velocity.x, verticalMoveSpeed);
         }
 
         void FixedUpdate()
         {
-            if (transform.position.y == -3)
-                _rb.velocity = new Vector2(_rb.velocity.x, verticalMoveSpeed);
-
             if (transform.position.y >= 0)
             {
                 transform.position = new Vector3(transform.position.x, 0, transform.position.z);
@@ -40,28 +41,60 @@ namespace com.Icypeak.Orbit.Player
             }
         }
 
+        private void ReduceLife()
+        {
+            if (!_isInvincible)
+            {
+                life--;
+                OnLifeChange?.Invoke(life);
+                if (life <= 0)
+                {
+                    OnDeath?.Invoke();
+                    AdManager.Instance.ShowRewardedInterstitialAd();
+                    this.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        public void IncreaseLife()
+        {
+            life = Mathf.Clamp(life + 1, 0, maxLife);
+            OnLifeChange?.Invoke(life);
+        }
+
+        private IEnumerator StartInvincibilityTimer()
+        {
+            _isInvincible = true;
+            yield return new WaitForSeconds(invincibilityDuration);
+            _isInvincible = false;
+        }
+
+        public void BecomeInvincibile()
+        {
+            StartCoroutine(StartInvincibilityTimer());
+        }
+
         void OnEnable()
         {
-            ObstacleBehaviour.OnDeath += IncreaseScore;
-            ObstacleBehaviour.OnEscape += DecreaseLife;
+            if (Director.GameMode == 1)
+            {
+                ObstacleBehaviour.OnEscape += ReduceLife;
+            }
+            else
+            {
+                ObstacleBehaviour.OnDeath += ReduceLife;
+            }
         }
-
         void OnDisable()
         {
-            ObstacleBehaviour.OnDeath -= IncreaseScore;
-            ObstacleBehaviour.OnEscape -= DecreaseLife;
-        }
-
-        void IncreaseScore()
-        {
-            Score++;
-            OnScoreChange?.Invoke(Score);
-        }
-
-        void DecreaseLife()
-        {
-            Lifes--;
-            OnLifeChange?.Invoke();
+            if (Director.GameMode == 1)
+            {
+                ObstacleBehaviour.OnEscape -= ReduceLife;
+            }
+            else
+            {
+                ObstacleBehaviour.OnDeath -= ReduceLife;
+            }
         }
     }
 }
