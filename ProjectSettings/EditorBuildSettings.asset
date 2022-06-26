@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Projeto/_Scenes/MainMenu.unity
+    guid: 385f2e5020397a041ae1d34f0ec8e914
+  - enabled: 1
     path: Assets/_Projeto/_Scenes/ChooseGameMode.unity
     guid: dc1c89d148c5d9949886a9e84e402aad
   - enabled: 1
@@ -14,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Projeto/_Scenes/DestroyMode.unity
     guid: 3b1b8e91d46d0c142835bc9c6b05b59c
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/Options.unity
+    guid: 2dfb23883e9aed342b866b8dd004f678
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/Store.unity
+    guid: 6bc67e04ab0cad44cb676e881c294b23
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/Leaderboard.unity
+    guid: 0155798cd7eff9c428a34ca6823ef25f
   m_configObjects: {}
