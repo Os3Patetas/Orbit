@@ -5,8 +5,6 @@ namespace com.Icypeak.Orbit.Manager
 {
     public class Director : MonoBehaviour
     {
-        public GameObject GameUIObj;
-        public GameObject PauseMenuUIObj;
         public static int GameMode = 1;
 
         public static float ObstacleSpeed;

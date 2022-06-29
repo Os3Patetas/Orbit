@@ -7,16 +7,17 @@ namespace com.Icypeak.Orbit.Scene
 {
     public class GameScene : MonoBehaviour
     {
-        [SerializeField] GameObject PauseMenu;
-        [SerializeField] GameObject EndGameUI;
+        [SerializeField] GameObject pauseMenu;
+        [SerializeField] GameObject endGameUI;
+        [SerializeField] PlayerStats playerStats;
         public void OpenPauseMenuButton()
         {
             Time.timeScale = 0;
-            PauseMenu.SetActive(true);
+            pauseMenu.SetActive(true);
         }
         public void ResumeButton()
         {
-            PauseMenu.SetActive(false);
+            pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
         public void RestartButton()
@@ -33,16 +34,16 @@ namespace com.Icypeak.Orbit.Scene
         public void ActivateEndGameUI()
         {
             Time.timeScale = 0;
-            EndGameUI.SetActive(true);
+            endGameUI.SetActive(true);
         }
 
         private void OnEnable()
         {
-            FindObjectOfType<PlayerStats>().OnDeath += ActivateEndGameUI;
+            playerStats.OnDeath += ActivateEndGameUI;
         }
         private void OnDisable()
         {
-            FindObjectOfType<PlayerStats>().OnDeath -= ActivateEndGameUI;
+            playerStats.OnDeath -= ActivateEndGameUI;
         }
     }
 }
