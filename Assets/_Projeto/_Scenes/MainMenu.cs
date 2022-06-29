@@ -29,7 +29,7 @@ namespace com.Icypeak.Orbit.Scene
         }
         public void GoToWebsite()
         {
-            Application.OpenURL("https://localhost:4200");
+            Application.OpenURL("http://localhost:4200");
         }
         public void ActivateBonus()
         {

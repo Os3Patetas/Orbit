@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 34216491}
   - component: {fileID: 34216493}
-  - component: {fileID: 34216492}
   m_Layer: 0
   m_Name: Director
   m_TagString: Untagged
@@ -156,21 +155,6 @@ Transform:
   m_Father: {fileID: 1657561250}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &34216492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34216490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07177d384cc354d4784e961d8cff6867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 212190494}
-  endGameUI: {fileID: 929569913}
-  playerStats: {fileID: 1342380110}
 --- !u!114 &34216493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,7 +1516,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1119486734}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -1944,6 +1928,7 @@ GameObject:
   - component: {fileID: 1119486732}
   - component: {fileID: 1119486731}
   - component: {fileID: 1119486730}
+  - component: {fileID: 1119486734}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -2035,6 +2020,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1119486734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119486729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07177d384cc354d4784e961d8cff6867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 212190494}
+  endGameUI: {fileID: 929569913}
+  playerStats: {fileID: 1342380110}
 --- !u!1 &1140444528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1119486734}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: ResumeButton
         m_Mode: 1
@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1119486734}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
@@ -3207,7 +3207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1119486734}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1119486734}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
