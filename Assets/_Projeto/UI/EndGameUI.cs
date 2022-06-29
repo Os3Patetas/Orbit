@@ -20,11 +20,11 @@ namespace com.Icypeak.Orbit
 
             var scoreCoins = score / 10.0f;
             var bonusPercentage = ((int)playerInfo.activatedBonus.type / 100.0f);
-            var bonusCoins = score * bonusPercentage;
+            var bonusCoins = scoreCoins * bonusPercentage;
 
             scorePointsText.text = score.ToString();
             scoreCoinsText.text = $"Score Coins: + {(int)scoreCoins}";
-            bonusCoinsText.text = $"Bonus({bonusPercentage}x): {bonusCoins}";
+            bonusCoinsText.text = $"Bonus({bonusPercentage}x): {(int)bonusCoins}";
             totalCoinsText.text = $"Total Earned: {(int)(scoreCoins + bonusCoins)}";
             currentCoinsText.text = $"Coins: {(int)(playerInfo.coins + scoreCoins + bonusCoins)}";
         }
