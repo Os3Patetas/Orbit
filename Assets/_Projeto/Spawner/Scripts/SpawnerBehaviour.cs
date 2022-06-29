@@ -1,4 +1,5 @@
 using UnityEngine;
+using com.Icypeak.Orbit.Manager;
 
 namespace com.Icypeak.Orbit.Spawner
 {
@@ -43,5 +44,19 @@ namespace com.Icypeak.Orbit.Spawner
 
         public void EnableSpawn() =>
             CanSpawn = true;
+
+        private void OnEnable()
+        {
+            DifficultyManager.Instance.OnDifficultyChange += UpdateSpawnCooldown;
+        }
+        private void OnDisable()
+        {
+            DifficultyManager.Instance.OnDifficultyChange -= UpdateSpawnCooldown;
+        }
+
+        void UpdateSpawnCooldown()
+        {
+            spawnCooldown = DifficultyManager.Instance.TargetSpawnCooldown;
+        }
     }
 }
