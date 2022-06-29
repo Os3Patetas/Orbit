@@ -12,7 +12,7 @@ namespace com.Icypeak.Orbit.Manager
         public float ObstacleTargetSpeed;
         public float TargetSpawnCooldown;
         [SerializeField] float ObstacleInitialSpeed;
-        [SerializeField] float ObstacleInitialSpawnSpeed;
+        [SerializeField] float InitialSpawnCooldown;
         [SerializeField] float ObstacleSpeedToAdd;
         [SerializeField] float ObstacleMaxSpeed;
 
@@ -33,13 +33,13 @@ namespace com.Icypeak.Orbit.Manager
         private void Start()
         {
             ObstacleTargetSpeed = ObstacleInitialSpeed;
-            TargetSpawnCooldown = ObstacleInitialSpawnSpeed;
+            TargetSpawnCooldown = InitialSpawnCooldown;
         }
 
         private void IncrementDifficulty()
         {
             ObstacleTargetSpeed = Mathf.Clamp(ObstacleTargetSpeed + ObstacleSpeedToAdd, 0, ObstacleMaxSpeed);
-            TargetSpawnCooldown = ObstacleTargetSpeed * ObstacleInitialSpawnSpeed / ObstacleInitialSpeed;
+            TargetSpawnCooldown = InitialSpawnCooldown * ObstacleInitialSpeed / ObstacleTargetSpeed;
             OnDifficultyChange?.Invoke();
         }
 
