@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Projeto/_Scenes/Leaderboard.unity
     guid: 0155798cd7eff9c428a34ca6823ef25f
+  - enabled: 1
+    path: Assets/_Projeto/_Scenes/SelectSkin.unity
+    guid: 756176216e6c8cf43bd394eb63d0e1c8
   m_configObjects: {}
