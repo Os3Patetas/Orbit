@@ -23,6 +23,10 @@ namespace com.Icypeak.Orbit.Scene
         {
             SceneManager.LoadScene("Store");
         }
+        public void GoToSelectSkin()
+        {
+            SceneManager.LoadScene("SelectSkin");
+        }
         public void GoToTwitter()
         {
             Application.OpenURL("https://twitter.com/IcyPeakStudio");
