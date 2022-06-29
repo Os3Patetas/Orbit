@@ -866,8 +866,8 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 1579024048139036882, guid: 030073bc6b07bae45b2e53efd612d54f, type: 3}
   Bonuses:
-  - {fileID: 1785852795929598324, guid: e45dede6aaed6b64ea2508201a926a6d, type: 3}
   - {fileID: 2222013868182686412, guid: 24bab611d90623d4794b6f8a5a56b713, type: 3}
+  - {fileID: 1785852795929598324, guid: e45dede6aaed6b64ea2508201a926a6d, type: 3}
   CanSpawn: 1
   bonusSpawnChanceMult: 0.1
   obstacleSpawnChanceMult: 1
@@ -3793,6 +3793,7 @@ GameObject:
   - component: {fileID: 1882043905}
   - component: {fileID: 1882043909}
   - component: {fileID: 1882043910}
+  - component: {fileID: 1882043911}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3945,7 +3946,27 @@ MonoBehaviour:
   verticalMoveSpeed: 0.03
   maxLife: 3
   life: 3
-  invincibilityDuration: 0
+  invincibilityDuration: 5
+--- !u!95 &1882043911
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882043904}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6ca665768ec43a48ad2af0ca9492ff8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1914249219
 GameObject:
   m_ObjectHideFlags: 0

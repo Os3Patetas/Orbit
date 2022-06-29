@@ -10,6 +10,7 @@ namespace com.Icypeak.Orbit.Player
     {
         //Components
         Rigidbody2D _rb;
+        Animator _anim;
         
         [Header("Stats")]
         [SerializeField] float verticalMoveSpeed;
@@ -23,8 +24,13 @@ namespace com.Icypeak.Orbit.Player
 
         //Status
         bool _isInvincible;
+        Coroutine _invincibilityCoroutine;
 
-        void Awake() => _rb = GetComponent<Rigidbody2D>();
+        void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _anim = GetComponent<Animator>();
+        } 
 
         void Start()
         {
@@ -64,13 +70,19 @@ namespace com.Icypeak.Orbit.Player
         private IEnumerator StartInvincibilityTimer()
         {
             _isInvincible = true;
+            _anim.SetBool("isInvincible", _isInvincible);
             yield return new WaitForSeconds(invincibilityDuration);
             _isInvincible = false;
+            _anim.SetBool("isInvincible", _isInvincible);
         }
 
         public void BecomeInvincibile()
         {
-            StartCoroutine(StartInvincibilityTimer());
+            if(_isInvincible)
+            {
+                StopCoroutine(_invincibilityCoroutine);
+            }
+            _invincibilityCoroutine = StartCoroutine(StartInvincibilityTimer());
         }
 
         void OnEnable()

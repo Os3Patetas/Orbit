@@ -8,5 +8,6 @@ namespace com.Icypeak.Orbit.General
     {
         public float RotationSpeed;
         public Sprite InitialSprite;
+        public Animator Animator;
     }
 }

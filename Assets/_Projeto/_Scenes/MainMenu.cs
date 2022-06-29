@@ -25,11 +25,11 @@ namespace com.Icypeak.Orbit.Scene
         }
         public void GoToTwitter()
         {
-            Application.OpenURL("https://www.twitter.com");
+            Application.OpenURL("https://twitter.com/IcyPeakStudio");
         }
         public void GoToWebsite()
         {
-            Application.OpenURL("https://www.google.com");
+            Application.OpenURL("https://localhost:4200");
         }
         public void ActivateBonus()
         {
