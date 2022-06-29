@@ -16,12 +16,15 @@ namespace com.Icypeak.Orbit
         private void OnEnable()
         {
             var score = FindObjectOfType<ScoreManager>().ScorePoints;
-            var scoreCoins = score / 10.0f;
             var playerInfo = Resources.Load<PlayerInfo>("Player/PlayerInfo");
-            var bonusCoins = ((int)playerInfo.activatedBonus.type / 100.0f);
+
+            var scoreCoins = score / 10.0f;
+            var bonusPercentage = ((int)playerInfo.activatedBonus.type / 100.0f);
+            var bonusCoins = score * bonusPercentage;
+
             scorePointsText.text = score.ToString();
             scoreCoinsText.text = $"Score Coins: + {(int)scoreCoins}";
-            bonusCoinsText.text = $"Bonus({bonusCoins}x): {(int)(scoreCoins * bonusCoins)}";
+            bonusCoinsText.text = $"Bonus({bonusPercentage}x): {bonusCoins}";
             totalCoinsText.text = $"Total Earned: {(int)(scoreCoins + bonusCoins)}";
             currentCoinsText.text = $"Coins: {(int)(playerInfo.coins + scoreCoins + bonusCoins)}";
         }
