@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   RotationSpeed: 0.15
-  InitialSprite: {fileID: 21300000, guid: 59198653708fbae42817ef222d1bf3e9, type: 3}
+  InitialSprite: {fileID: 21300000, guid: e7ca6cc880434824c8bb408d00574b17, type: 3}
+  Animator: {fileID: 0}

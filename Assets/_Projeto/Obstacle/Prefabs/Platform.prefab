@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  selectedSkin: {fileID: 0}
+  selectedSkin: {fileID: 11400000, guid: f1bed147ec40ee345afc7114d303622d, type: 2}
