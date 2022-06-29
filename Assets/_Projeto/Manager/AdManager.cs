@@ -2,6 +2,9 @@ using System;
 using GoogleMobileAds.Api;
 using UnityEngine;
 
+using com.Icypeak.Orbit.Player;
+using com.Icypeak.Orbit.General;
+
 namespace com.Icypeak.Orbit.Manager
 {
 
@@ -83,8 +86,8 @@ namespace com.Icypeak.Orbit.Manager
 
         private void userEarnedRewardCallback(Reward reward)
         {
-            print("voce foi recompensado");
+            var playerInfo = Resources.Load<PlayerInfo>("Player/PlayerInfo");
+            playerInfo.activatedBonus.ActivateBonus(CoinBonusType.OneQuarter, 1);
         }
-
     }
 }
