@@ -3355,8 +3355,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleTargetSpeed: 0
+  TargetSpawnCooldown: 0
   ObstacleInitialSpeed: 3
-  ObstacleSpeedToAdd: 0
+  InitialSpawnCooldown: 1.5
+  ObstacleSpeedToAdd: 1
   ObstacleMaxSpeed: 20
 --- !u!1 &1889275842
 GameObject:
