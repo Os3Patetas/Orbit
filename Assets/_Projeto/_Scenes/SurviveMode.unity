@@ -2706,7 +2706,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1486511838}
         m_TargetAssemblyTypeName: com.Icypeak.Orbit.Scene.GameScene, Assembly-CSharp
         m_MethodName: OpenPauseMenuButton
         m_Mode: 1
