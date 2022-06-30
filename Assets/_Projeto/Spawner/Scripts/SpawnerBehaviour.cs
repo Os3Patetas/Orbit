@@ -56,7 +56,6 @@ namespace com.Icypeak.Orbit.Spawner
 
         void UpdateSpawnCooldown()
         {
-            print(spawnCooldown);
             spawnCooldown = DifficultyManager.Instance.TargetSpawnCooldown;
         }
     }

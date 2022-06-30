@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using com.Icypeak.Orbit.Player;
+using com.Icypeak.Orbit.Manager;
 
 namespace com.Icypeak.Orbit.Scene
 {
@@ -9,7 +9,6 @@ namespace com.Icypeak.Orbit.Scene
     {
         [SerializeField] GameObject pauseMenu;
         [SerializeField] GameObject endGameUI;
-        [SerializeField] PlayerStats playerStats;
         public void OpenPauseMenuButton()
         {
             Time.timeScale = 0;
@@ -39,11 +38,11 @@ namespace com.Icypeak.Orbit.Scene
 
         private void OnEnable()
         {
-            playerStats.OnDeath += ActivateEndGameUI;
+            PlayerManager.Instance.playerStats.OnDeath += ActivateEndGameUI;
         }
         private void OnDisable()
         {
-            playerStats.OnDeath -= ActivateEndGameUI;
+            PlayerManager.Instance.playerStats.OnDeath -= ActivateEndGameUI;
         }
     }
 }

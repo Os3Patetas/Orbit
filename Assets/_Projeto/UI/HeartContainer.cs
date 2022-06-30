@@ -1,4 +1,4 @@
-using com.Icypeak.Orbit.Player;
+using com.Icypeak.Orbit.Manager;
 using UnityEngine;
 
 namespace com.Icypeak.Orbit
@@ -6,7 +6,6 @@ namespace com.Icypeak.Orbit
     public class HeartContainer : MonoBehaviour
     {
         public int HeartContainerNumber;
-        void Start() => FindObjectOfType<PlayerStats>().OnLifeChange += RefreshHeartContainer;
 
         private void RefreshHeartContainer(int life)
         {
@@ -18,6 +17,15 @@ namespace com.Icypeak.Orbit
             {
                 transform.GetChild(0).gameObject.SetActive(true);
             }
+        }
+
+        private void OnEnable()
+        {
+            PlayerManager.Instance.playerStats.OnLifeChange += RefreshHeartContainer;
+        }
+        private void OnDisable()
+        {
+            PlayerManager.Instance.playerStats.OnLifeChange -= RefreshHeartContainer;
         }
     }
 }

@@ -7,8 +7,6 @@ namespace com.Icypeak.Orbit.UI
     {
         public static Action OnGamePaused;
 
-        [SerializeField] GameObject heartContainers;
-
         public void PauseButtonClick()
         {
             Time.timeScale = 0;
